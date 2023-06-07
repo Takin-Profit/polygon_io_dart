@@ -8,6 +8,7 @@
         "endregion",
         "epma",
         "eurusd",
+        "forex",
         "fpdart",
         "Legoux",
         "linreg",
@@ -18,15 +19,12 @@
         "smma",
         "swma",
         "tema",
+        "Timeframe",
         "tradingview",
         "vals",
         "vwma"
     ],
     "conventionalCommits.scopes": [
-        "replay_subject",
-        "Quote",
-        "TA",
-        "Util",
-        "Tests"
+        "Models"
     ]
 }

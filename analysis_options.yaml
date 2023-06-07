@@ -21,6 +21,8 @@ linter:
       - prefer_relative_imports
 
 analyzer:
+  enable-experiment:
+    - inline-class
   errors:
     avoid_classes_with_only_static_members: ignore
 
@@ -44,6 +46,7 @@ dart_code_metrics:
     - format-comment: false
     - avoid-dynamic: false
     - prefer-correct-identifier-length: false
+    - prefer-match-file-name: false
 # exclude:
 #     - path/to/excluded/files/**
 

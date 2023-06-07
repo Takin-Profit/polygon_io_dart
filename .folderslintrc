@@ -3,7 +3,8 @@
     ".github/*",
     ".vscode/",
     "example/",
-    "lib/src/*",
+    "lib/src/rest/*",
+    "lib/src/ /*",
     "test/*"
   ]
 }
