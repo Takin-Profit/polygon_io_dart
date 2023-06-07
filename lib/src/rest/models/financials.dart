@@ -30,48 +30,21 @@ extension Data_Point on DataPoint {
 typedef ExchangeGainsLosses = _Data;
 
 extension Exchange_Gains_Losses on ExchangeGainsLosses {
-  static ExchangeGainsLosses fromMap(Map<String, dynamic> d) => (
-        formula: d['formula'],
-        label: d['label'],
-        order: d['order'],
-        unit: d['unit'],
-        value: d['value'],
-        xpath: d['xpath'],
-      );
+  static ExchangeGainsLosses fromMap(Map<String, dynamic> d) => _fromMap(d);
 }
 
 typedef NetCashFlow = _Data;
 
 extension Net_Cash_Flow on NetCashFlow {
-  static NetCashFlow fromMap(Map<String, dynamic> d) => (
-        formula: d['formula'],
-        label: d['label'],
-        order: d['order'],
-        unit: d['unit'],
-        value: d['value'],
-        xpath: d['xpath']
-      );
+  static NetCashFlow fromMap(Map<String, dynamic> d) => _fromMap(d);
 }
 
-typedef NetCashFlowFromFinancingActivities = ({
-  String? formula,
-  String? label,
-  int? order,
-  String? unit,
-  double? value,
-  String? xpath,
-});
+typedef NetCashFlowFromFinancingActivities = _Data;
 
 extension NetCashFlow_FromFinancing_Activities
     on NetCashFlowFromFinancingActivities {
-  static NetCashFlowFromFinancingActivities fromMap(Map<String, dynamic> d) => (
-        formula: d['formula'],
-        label: d['label'],
-        order: d['order'],
-        unit: d['unit'],
-        value: d['value'],
-        xpath: d['xpath']
-      );
+  static NetCashFlowFromFinancingActivities fromMap(Map<String, dynamic> d) =>
+      _fromMap(d);
 }
 
 typedef CashFlowStatement = ({
@@ -102,67 +75,26 @@ extension CashFlow_Statement on CashFlowStatement {
       );
 }
 
-typedef ComprehensiveIncomeLoss = ({
-  String? formula,
-  String? label,
-  int? order,
-  String? unit,
-  double? value,
-  String? xpath,
-});
+typedef ComprehensiveIncomeLoss = _Data;
 
 extension Comprehensive_IncomeLoss on ComprehensiveIncomeLoss {
-  static ComprehensiveIncomeLoss fromMap(Map<String, dynamic> d) => (
-        formula: d['formula'],
-        label: d['label'],
-        order: d['order'],
-        unit: d['unit'],
-        value: d['value'],
-        xpath: d['xpath'],
-      );
+  static ComprehensiveIncomeLoss fromMap(Map<String, dynamic> d) => _fromMap(d);
 }
 
-typedef ComprehensiveIncomeLossAttributableToParent = ({
-  String? formula,
-  String? label,
-  int? order,
-  String? unit,
-  double? value,
-  String? xpath,
-});
+typedef ComprehensiveIncomeLossAttributableToParent = _Data;
 
 extension ComprehensiveIncomeLoss_AttributableToParent
     on ComprehensiveIncomeLossAttributableToParent {
   static ComprehensiveIncomeLossAttributableToParent fromMap(
           Map<String, dynamic> d) =>
-      (
-        formula: d['formula'],
-        label: d['label'],
-        order: d['order'],
-        unit: d['unit'],
-        value: d['value'],
-        xpath: d['xpath'],
-      );
+      _fromMap(d);
 }
 
-typedef OtherComprehensiveIncomeLoss = ({
-  String? formula,
-  String? label,
-  int? order,
-  String? unit,
-  double? value,
-  String? xpath,
-});
+typedef OtherComprehensiveIncomeLoss = _Data;
 
 extension Other_Comprehensive_IncomeLoss on OtherComprehensiveIncomeLoss {
-  static OtherComprehensiveIncomeLoss fromMap(Map<String, dynamic> d) => (
-        formula: d['formula'],
-        label: d['label'],
-        order: d['order'],
-        unit: d['unit'],
-        value: d['value'],
-        xpath: d['xpath'],
-      );
+  static OtherComprehensiveIncomeLoss fromMap(Map<String, dynamic> d) =>
+      _fromMap(d);
 }
 
 typedef ComprehensiveIncome = ({
@@ -194,104 +126,34 @@ extension Comprehensive_Income on ComprehensiveIncome {
       );
 }
 
-typedef BasicEarningsPerShare = ({
-  String? formula,
-  String? label,
-  int? order,
-  String? unit,
-  double? value,
-  String? xpath,
-});
+typedef BasicEarningsPerShare = _Data;
 
 extension BasicEarnings_PerShare on BasicEarningsPerShare {
-  static BasicEarningsPerShare fromMap(Map<String, dynamic> d) => (
-        formula: d['formula'],
-        label: d['label'],
-        order: d['order'],
-        unit: d['unit'],
-        value: d['value'],
-        xpath: d['xpath'],
-      );
+  static BasicEarningsPerShare fromMap(Map<String, dynamic> d) => _fromMap(d);
 }
 
-typedef CostOfRevenue = ({
-  String? formula,
-  String? label,
-  int? order,
-  String? unit,
-  double? value,
-  String? xpath,
-});
+typedef CostOfRevenue = _Data;
 
 extension CostOf_Revenue on CostOfRevenue {
-  static CostOfRevenue fromMap(Map<String, dynamic> d) => (
-        formula: d['formula'],
-        label: d['label'],
-        order: d['order'],
-        unit: d['unit'],
-        value: d['value'],
-        xpath: d['xpath'],
-      );
+  static CostOfRevenue fromMap(Map<String, dynamic> d) => _fromMap(d);
 }
 
-typedef GrossProfit = ({
-  String? formula,
-  String? label,
-  int? order,
-  String? unit,
-  double? value,
-  String? xpath,
-});
+typedef GrossProfit = _Data;
 
 extension Gross_Profit on GrossProfit {
-  static GrossProfit fromMap(Map<String, dynamic> d) => (
-        formula: d['formula'],
-        label: d['label'],
-        order: d['order'],
-        unit: d['unit'],
-        value: d['value'],
-        xpath: d['xpath'],
-      );
+  static GrossProfit fromMap(Map<String, dynamic> d) => _fromMap(d);
 }
 
-typedef OperatingExpenses = ({
-  String? formula,
-  String? label,
-  int? order,
-  String? unit,
-  double? value,
-  String? xpath,
-});
+typedef OperatingExpenses = _Data;
 
 extension Operating_Expenses on OperatingExpenses {
-  static OperatingExpenses fromMap(Map<String, dynamic> d) => (
-        formula: d['formula'],
-        label: d['label'],
-        order: d['order'],
-        unit: d['unit'],
-        value: d['value'],
-        xpath: d['xpath'],
-      );
+  static OperatingExpenses fromMap(Map<String, dynamic> d) => _fromMap(d);
 }
 
-typedef Revenues = ({
-  String? formula,
-  String? label,
-  int? order,
-  String? unit,
-  double? value,
-  String? xpath,
-});
+typedef Revenues = _Data;
 
 extension Revenue on Revenues {
-  static Revenues fromMap(Map<String, dynamic> d) => (
-        formula: d['formula'],
-        label: d['label'],
-        order: d['order'],
-        unit: d['unit'],
-        value: d['value'],
-        xpath: d['xpath'],
-      );
+  static Revenues fromMap(Map<String, dynamic> d) => _fromMap(d);
 }
 
 typedef IncomeStatement = ({
