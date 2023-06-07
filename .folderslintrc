@@ -1,0 +1,9 @@
+{
+  "rules": [
+    ".github/*",
+    ".vscode/",
+    "example/",
+    "lib/src/*",
+    "test/*"
+  ]
+}
