@@ -14,8 +14,8 @@ typedef Agg = ({
   bool? otc
 });
 
-extension AggExtension on Agg {
-  Agg fromMap(Map<String, dynamic> map) {
+extension Aggs on Agg {
+  static Agg fromMap(Map<String, dynamic> map) {
     return (
       open: map['o'],
       high: map['h'],
@@ -44,8 +44,8 @@ typedef GroupedDailyAgg = ({
   bool? otc
 });
 
-extension GroupedDailyAggExtension on GroupedDailyAgg {
-  GroupedDailyAgg fromMap(Map<String, dynamic> map) {
+extension Grouped_Daily_Agg on GroupedDailyAgg {
+  static GroupedDailyAgg fromMap(Map<String, dynamic> map) {
     return (
       ticker: map['T'],
       open: map['o'],
