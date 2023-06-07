@@ -15,6 +15,7 @@
         "lsma",
         "ohlc",
         "OLHCV",
+        "OPRA",
         "rxdart",
         "smma",
         "swma",
@@ -22,6 +23,7 @@
         "Timeframe",
         "tradingview",
         "vals",
+        "vwap",
         "vwma"
     ],
     "conventionalCommits.scopes": [
