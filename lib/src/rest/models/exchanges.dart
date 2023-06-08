@@ -16,7 +16,7 @@ typedef Exchange = ({
   String? url,
 });
 
-extension Exchanges on Exchange {
+extension exchange on Exchange {
   static Exchange fromMap(Map<String, dynamic> map) {
     return (
       acronym: map['acronym'],
