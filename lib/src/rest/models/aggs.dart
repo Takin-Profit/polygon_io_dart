@@ -78,7 +78,7 @@ typedef DailyOpenCloseAgg = ({
 });
 
 extension dailyOpenCloseAgg on DailyOpenCloseAgg {
-  DailyOpenCloseAgg fromMap(Map<String, dynamic> map) {
+  static DailyOpenCloseAgg fromMap(Map<String, dynamic> map) {
     return (
       afterHours: map['afterHours'],
       close: map['close'],
@@ -108,7 +108,7 @@ typedef PreviousCloseAgg = ({
 });
 
 extension previousCloseAgg on PreviousCloseAgg {
-  PreviousCloseAgg fromMap(Map<String, dynamic> map) {
+  static PreviousCloseAgg fromMap(Map<String, dynamic> map) {
     return (
       ticker: map['T'],
       close: map['c'],
