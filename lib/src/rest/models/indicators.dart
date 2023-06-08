@@ -10,7 +10,7 @@ typedef IndicatorValue = ({
   double? value,
 });
 
-extension Indicator_Value on IndicatorValue {
+extension indicatorValue on IndicatorValue {
   static IndicatorValue fromMap(Map<String, dynamic> d) => (
         timestamp: d['timestamp'],
         value: d['value'],
@@ -25,7 +25,7 @@ typedef MACDIndicatorValue = ({
   double? histogram,
 });
 
-extension MACD_IndicatorValue on MACDIndicatorValue {
+extension macdIndicatorValue on MACDIndicatorValue {
   static MACDIndicatorValue fromMap(Map<String, dynamic> d) => (
         timestamp: d['timestamp'],
         value: d['value'],
@@ -40,7 +40,7 @@ typedef IndicatorUnderlying = ({
   List<Agg>? aggregates,
 });
 
-extension Indicator_Underlying on IndicatorUnderlying {
+extension indicatorUnderlying on IndicatorUnderlying {
   static IndicatorUnderlying fromMap(Map<String, dynamic> d) => (
         url: d['url'],
         aggregates: d['aggregates'] != null
@@ -61,15 +61,15 @@ typedef SingleIndicatorResults = ({
   IndicatorUnderlying? underlying
 });
 
-extension SingleIndicator_Result on SingleIndicatorResults {
+extension singleIndicatorResult on SingleIndicatorResults {
   static SingleIndicatorResults fromMap(Map<String, dynamic> d) => (
         values: d['values'] != null
             ? List<IndicatorValue>.of(d['values'].map(
-                (x) => Indicator_Value.fromMap(x as Map<String, dynamic>),
+                (x) => indicatorValue.fromMap(x as Map<String, dynamic>),
               ) as List<IndicatorValue>)
             : null,
         underlying: d['underlying'] != null
-            ? Indicator_Underlying.fromMap(
+            ? indicatorUnderlying.fromMap(
                 d['underlying'] as Map<String, dynamic>,
               )
             : null
@@ -78,23 +78,23 @@ extension SingleIndicator_Result on SingleIndicatorResults {
 
 typedef SMAIndicatorResults = SingleIndicatorResults;
 
-extension SMAIndicator_Results on SMAIndicatorResults {
+extension smaIndicatorResults on SMAIndicatorResults {
   static SMAIndicatorResults fromMap(Map<String, dynamic> d) =>
-      SingleIndicator_Result.fromMap(d);
+      singleIndicatorResult.fromMap(d);
 }
 
 typedef EMAIndicatorResults = SingleIndicatorResults;
 
-extension EMAIndicator_Results on SMAIndicatorResults {
+extension emaIndicatorResults on SMAIndicatorResults {
   static EMAIndicatorResults fromMap(Map<String, dynamic> d) =>
-      SingleIndicator_Result.fromMap(d);
+      singleIndicatorResult.fromMap(d);
 }
 
 typedef RSIIndicatorResults = SingleIndicatorResults;
 
-extension RSIIndicator_Results on SMAIndicatorResults {
+extension rsiIndicatorResults on SMAIndicatorResults {
   static RSIIndicatorResults fromMap(Map<String, dynamic> d) =>
-      SingleIndicator_Result.fromMap(d);
+      singleIndicatorResult.fromMap(d);
 }
 
 /// Contains indicator values and Underlying.
@@ -103,15 +103,15 @@ typedef MACDIndicatorResults = ({
   IndicatorUnderlying? underlying,
 });
 
-extension MACDIndicator_Results on MACDIndicatorResults {
+extension macdIndicatorResults on MACDIndicatorResults {
   static MACDIndicatorResults fromMap(Map<String, dynamic> d) => (
         values: d['values'] != null
             ? List<MACDIndicatorValue>.of(d['values'].map(
-                (x) => MACD_IndicatorValue.fromMap(x as Map<String, dynamic>),
+                (x) => macdIndicatorValue.fromMap(x as Map<String, dynamic>),
               ) as List<MACDIndicatorValue>)
             : null,
         underlying: d['underlying'] != null
-            ? Indicator_Underlying.fromMap(
+            ? indicatorUnderlying.fromMap(
                 d['underlying'] as Map<String, dynamic>,
               )
             : null
