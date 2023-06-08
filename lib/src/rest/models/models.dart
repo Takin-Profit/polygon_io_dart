@@ -9,6 +9,7 @@ import 'dividends.dart';
 import 'exchanges.dart';
 import 'financials.dart';
 import 'indicators.dart';
+import 'markets.dart';
 
 export 'aggs.dart'
     show Agg, GroupedDailyAgg, DailyOpenCloseAgg, PreviousCloseAgg;
@@ -47,6 +48,13 @@ export 'indicators.dart'
         EMAIndicatorResults,
         RSIIndicatorResults,
         MACDIndicatorResults;
+export 'markets.dart'
+    show
+        MarketCurrencies,
+        MarketExchanges,
+        MarketIndices,
+        MarketHoliday,
+        MarketStatus;
 
 typedef _AGG = Agg;
 typedef _GroupedDailyAgg = GroupedDailyAgg;
@@ -88,9 +96,24 @@ typedef _SMAIndicatorResults = SMAIndicatorResults;
 typedef _EMAIndicatorResults = EMAIndicatorResults;
 typedef _RSIIndicatorResults = RSIIndicatorResults;
 typedef _MACDIndicatorResults = MACDIndicatorResults;
+typedef _MarketCurrencies = MarketCurrencies;
+typedef _MarketExchanges = MarketExchanges;
+typedef _MarketIndices = MarketIndices;
+typedef _MarketHoliday = MarketHoliday;
+typedef _MarketStatus = MarketStatus;
 
 /// Contains methods for parsing each typedef from json.
 sealed class parse {
+  static _MarketStatus MarketStatus(Map<String, dynamic> json) =>
+      marketStatus.fromMap(json);
+  static _MarketHoliday MarketHoliday(Map<String, dynamic> json) =>
+      marketHoliday.fromMap(json);
+  static _MarketIndices MarketIndices(Map<String, dynamic> json) =>
+      marketIndices.fromMap(json);
+  static _MarketExchanges MarketExchanges(Map<String, dynamic> json) =>
+      marketExchanges.fromMap(json);
+  static _MarketCurrencies MarketCurrencies(Map<String, dynamic> json) =>
+      marketCurrencies.fromMap(json);
   static _MACDIndicatorResults MACDIndicatorResults(
     Map<String, dynamic> json,
   ) =>
