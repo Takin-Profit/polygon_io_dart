@@ -46,7 +46,7 @@ extension Indicator_Underlying on IndicatorUnderlying {
         aggregates: d['aggregates'] != null
             ? List<Agg>.of(
                 d['aggregates'].map(
-                  (x) => Aggs.fromMap(
+                  (x) => agg.fromMap(
                     x as Map<String, dynamic>,
                   ),
                 ) as List<Agg>,

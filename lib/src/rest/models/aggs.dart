@@ -15,7 +15,7 @@ typedef Agg = ({
   bool? otc
 });
 
-extension Aggs on Agg {
+extension agg on Agg {
   static Agg fromMap(Map<String, dynamic> map) {
     return (
       open: map['o'],
@@ -45,7 +45,7 @@ typedef GroupedDailyAgg = ({
   bool? otc
 });
 
-extension Grouped_Daily_Agg on GroupedDailyAgg {
+extension groupedDailyAgg on GroupedDailyAgg {
   static GroupedDailyAgg fromMap(Map<String, dynamic> map) {
     return (
       ticker: map['T'],
@@ -77,7 +77,7 @@ typedef DailyOpenCloseAgg = ({
   bool? otc
 });
 
-extension DailyOpenCloseAggExtension on DailyOpenCloseAgg {
+extension dailyOpenCloseAgg on DailyOpenCloseAgg {
   DailyOpenCloseAgg fromMap(Map<String, dynamic> map) {
     return (
       afterHours: map['afterHours'],
@@ -107,7 +107,7 @@ typedef PreviousCloseAgg = ({
   double? vwap
 });
 
-extension PreviousCloseAggExtension on PreviousCloseAgg {
+extension previousCloseAgg on PreviousCloseAgg {
   PreviousCloseAgg fromMap(Map<String, dynamic> map) {
     return (
       ticker: map['T'],
