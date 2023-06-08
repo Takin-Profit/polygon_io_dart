@@ -47,6 +47,7 @@ dart_code_metrics:
     - avoid-dynamic: false
     - prefer-correct-identifier-length: false
     - prefer-match-file-name: false
+    - prefer-correct-type-name: false
 # exclude:
 #     - path/to/excluded/files/**
 
