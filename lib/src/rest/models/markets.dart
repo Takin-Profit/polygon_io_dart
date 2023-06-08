@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
+/// Contains currency market status data.
 typedef MarketCurrencies = ({
   String? crypto,
   String? fx,
@@ -12,6 +13,7 @@ extension Market_Currencies on MarketCurrencies {
       (crypto: d['crypto'], fx: d['fx']);
 }
 
+/// Contains exchange market status data.
 typedef MarketExchanges = ({
   String? nasdaq,
   String? nyse,
@@ -23,6 +25,7 @@ extension Market_Exchanges on MarketExchanges {
       (nasdaq: d['nasdaq'], nyse: d['nyse'], otc: d['otc']);
 }
 
+/// Contains indices market status data.
 typedef MarketIndices = ({
   String? s_and_p,
   String? societe_generale,
@@ -49,6 +52,7 @@ extension Market_Indices on MarketIndices {
       );
 }
 
+/// MarketHoliday contains data for upcoming market holidays and their open/close times.
 typedef MarketHoliday = ({
   String? close,
   String? date,
@@ -69,6 +73,7 @@ extension Market_Holiday on MarketHoliday {
       );
 }
 
+/// MarketStatus contains data for the current trading status of the exchanges and overall financial markets.
 typedef MarketStatus = ({
   bool? afterHours,
   MarketCurrencies? currencies,
