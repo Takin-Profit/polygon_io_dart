@@ -10,7 +10,7 @@ typedef SipMapping = ({
 });
 
 extension sipMapping on SipMapping {
-  static fromMap(Map<String, dynamic> map) {
+  static SipMapping fromMap(Map<String, dynamic> map) {
     return (
       CTA: map['CTA'],
       OPRA: map['OPRA'],
@@ -36,7 +36,7 @@ _UpdateRule _fromMap(Map<String, dynamic> map) {
 /// Contains data for aggregation rules on a consolidated (all exchanges) basis.
 typedef Consolidated = _UpdateRule;
 
-extension Consolidate on Consolidated {
+extension consolidated on Consolidated {
   static Consolidated fromMap(Map<String, dynamic> d) => _fromMap(d);
 }
 
@@ -67,7 +67,7 @@ extension updateRules on UpdateRules {
 }
 
 /// condition contains data for a condition that Polygon.io uses.
-typedef condition = ({
+typedef Condition = ({
   String? abbreviation,
   String? assetClass,
   List<String>? dataTypes,
@@ -81,8 +81,8 @@ typedef condition = ({
   UpdateRules? updateRules,
 });
 
-extension conditions on condition {
-  condition fromMap(Map<String, dynamic> map) {
+extension condition on Condition {
+  static Condition fromMap(Map<String, dynamic> map) {
     return (
       abbreviation: map['abbreviation'],
       assetClass: map['asset_class'],
