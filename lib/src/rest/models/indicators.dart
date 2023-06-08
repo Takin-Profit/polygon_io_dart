@@ -4,6 +4,7 @@
 
 import 'aggs.dart';
 
+/// Contains one datum for indicators with a single value.
 typedef IndicatorValue = ({
   int? timestamp,
   double? value,
@@ -16,6 +17,7 @@ extension Indicator_Value on IndicatorValue {
       );
 }
 
+/// Contains one datum for all MACD values.
 typedef MACDIndicatorValue = ({
   int? timestamp,
   double? value,
@@ -32,6 +34,7 @@ extension MACD_IndicatorValue on MACDIndicatorValue {
       );
 }
 
+/// Contains the URL to call to get the aggs used for building the indicator.
 typedef IndicatorUnderlying = ({
   String? url,
   List<Agg>? aggregates,
@@ -52,6 +55,7 @@ extension Indicator_Underlying on IndicatorUnderlying {
       );
 }
 
+/// Contains indicator values and Underlying.
 typedef SingleIndicatorResults = ({
   List<IndicatorValue>? values,
   IndicatorUnderlying? underlying
@@ -93,6 +97,7 @@ extension RSIIndicator_Results on SMAIndicatorResults {
       SingleIndicator_Result.fromMap(d);
 }
 
+/// Contains indicator values and Underlying.
 typedef MACDIndicatorResults = ({
   List<MACDIndicatorValue>? values,
   IndicatorUnderlying? underlying,
