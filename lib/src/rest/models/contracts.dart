@@ -9,7 +9,7 @@ typedef Underlying = ({
   String? underlying,
 });
 
-extension Under_lying on Underlying {
+extension underlying on Underlying {
   static Underlying fromMap(Map<String, dynamic> map) {
     return (
       amount: map['amount']?.toDouble(),
@@ -34,12 +34,12 @@ typedef OptionsContract = ({
   String? underlyingTicker,
 });
 
-extension Options_Contract on OptionsContract {
+extension optionsContract on OptionsContract {
   static OptionsContract fromMap(Map<String, dynamic> map) {
     return (
       additionalUnderlyings: map['additional_underlyings'] != null
           ? (map['additional_underlyings'] as List<Map<String, dynamic>>)
-              .map((e) => Under_lying.fromMap(e))
+              .map((e) => underlying.fromMap(e))
               .toList()
           : null,
       cfi: map['cfi'],
