@@ -108,7 +108,7 @@ extension tickerSnapshot on TickerSnapshot {
               )
             : null,
         lastQuote: json['lastQuote'] != null
-            ? Last_Quote.fromMap(
+            ? lastQuote.fromMap(
                 json['lastQuote'] as Map<String, dynamic>,
               )
             : null,

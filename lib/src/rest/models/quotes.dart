@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
+/// Quote contains quote data for a specified ticker symbol.
 typedef Quote = ({
   int? askExchange,
   double? askPrice,
@@ -18,7 +19,7 @@ typedef Quote = ({
   int? trfTimestamp,
 });
 
-extension Quotes on Quote {
+extension quotes on Quote {
   static Quote fromMap(Map<String, dynamic> d) => (
         askExchange: d['ask_exchange'],
         askPrice: d['ask_price'],
@@ -36,6 +37,7 @@ extension Quotes on Quote {
       );
 }
 
+/// LastQuote contains data for the most recent NBBO (Quote) tick for a given stock.
 typedef LastQuote = ({
   String? ticker,
   int? trfTimestamp,
@@ -53,7 +55,7 @@ typedef LastQuote = ({
   int? tape,
 });
 
-extension Last_Quote on LastQuote {
+extension lastQuote on LastQuote {
   static LastQuote fromMap(Map<String, dynamic> d) => (
         ticker: d['T'],
         trfTimestamp: d['f'],
@@ -72,6 +74,7 @@ extension Last_Quote on LastQuote {
       );
 }
 
+/// Contains data for a forex quote.
 typedef ForexQuote = ({
   double? ask,
   double? bid,
@@ -79,7 +82,7 @@ typedef ForexQuote = ({
   int? timestamp
 });
 
-extension Forex_Quote on ForexQuote {
+extension forexQuote on ForexQuote {
   static ForexQuote fromMap(Map<String, dynamic> d) => (
         ask: d['ask'],
         bid: d['bid'],
@@ -88,22 +91,24 @@ extension Forex_Quote on ForexQuote {
       );
 }
 
+/// ForexLastQuote contains data for the last quote tick for a forex currency pair.
 typedef LastForexQuote = ({
   ForexQuote? last,
   String? symbol,
 });
 
-extension LastForex_Quote on LastForexQuote {
+extension lastForexQuote on LastForexQuote {
   static LastForexQuote fromMap(Map<String, dynamic> d) => (
         last: d['last'] == null
             ? null
-            : Forex_Quote.fromMap(
+            : forexQuote.fromMap(
                 d['last'] as Map<String, dynamic>,
               ),
         symbol: d['symbol']
       );
 }
 
+/// RealTimeCurrencyConversion contains data for currency conversions using the latest market conversion rates.
 typedef RealTimeCurrencyConversion = ({
   double? converted,
   String? from,
@@ -112,14 +117,14 @@ typedef RealTimeCurrencyConversion = ({
   String? to,
 });
 
-extension RealTime_CurrencyConversion on RealTimeCurrencyConversion {
+extension realTimeCurrencyConversion on RealTimeCurrencyConversion {
   static RealTimeCurrencyConversion fromMap(Map<String, dynamic> d) => (
         converted: d['converted'],
         from: d['from'],
         initialAmount: d['initialAmount'],
         last: d['last'] == null
             ? null
-            : Forex_Quote.fromMap(
+            : forexQuote.fromMap(
                 d['last'] as Map<String, dynamic>,
               ),
         to: d['to']
