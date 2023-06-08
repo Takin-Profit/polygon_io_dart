@@ -8,7 +8,7 @@ typedef MarketCurrencies = ({
   String? fx,
 });
 
-extension Market_Currencies on MarketCurrencies {
+extension marketCurrencies on MarketCurrencies {
   static MarketCurrencies fromMap(Map<String, dynamic> d) =>
       (crypto: d['crypto'], fx: d['fx']);
 }
@@ -20,7 +20,7 @@ typedef MarketExchanges = ({
   String? otc,
 });
 
-extension Market_Exchanges on MarketExchanges {
+extension marketExchanges on MarketExchanges {
   static MarketExchanges fromMap(Map<String, dynamic> d) =>
       (nasdaq: d['nasdaq'], nyse: d['nyse'], otc: d['otc']);
 }
@@ -38,7 +38,7 @@ typedef MarketIndices = ({
   String? dow_jones,
 });
 
-extension Market_Indices on MarketIndices {
+extension marketIndices on MarketIndices {
   static MarketIndices fromMap(Map<String, dynamic> d) => (
         s_and_p: d['s_and_p'],
         societe_generale: d['societe_generale'],
@@ -62,7 +62,7 @@ typedef MarketHoliday = ({
   String? status
 });
 
-extension Market_Holiday on MarketHoliday {
+extension marketHoliday on MarketHoliday {
   static MarketHoliday fromMap(Map<String, dynamic> d) => (
         close: d['close'],
         date: d['date'],
@@ -84,22 +84,22 @@ typedef MarketStatus = ({
   String? serverTime
 });
 
-extension Market_Status on MarketStatus {
+extension marketStatus on MarketStatus {
   static MarketStatus fromMap(Map<String, dynamic> d) => (
         afterHours: d['after_hours'],
         currencies: d['currencies'] != null
-            ? Market_Currencies.fromMap(
+            ? marketCurrencies.fromMap(
                 d['currencies'] as Map<String, dynamic>,
               )
             : null,
         earlyHours: d['early_hours'],
         exchanges: d['exchanges'] != null
-            ? Market_Exchanges.fromMap(
+            ? marketExchanges.fromMap(
                 d['exchanges'] as Map<String, dynamic>,
               )
             : null,
         indicesGroups: d['indicesGroups'] != null
-            ? Market_Indices.fromMap(
+            ? marketIndices.fromMap(
                 d['indicesGroups'] as Map<String, dynamic>,
               )
             : null,
