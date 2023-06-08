@@ -14,7 +14,7 @@ typedef Dividend = ({
   String? ticker,
 });
 
-extension Dividends on Dividend {
+extension dividends on Dividend {
   static Dividend fromMap(Map<String, dynamic> map) {
     return (
       cashAmount: map['cash_amount']?.toDouble(),
