@@ -11,6 +11,7 @@ import 'financials.dart';
 import 'indicators.dart';
 import 'markets.dart';
 import 'quotes.dart';
+import 'snapshot.dart';
 
 export 'aggs.dart'
     show Agg, GroupedDailyAgg, DailyOpenCloseAgg, PreviousCloseAgg;
@@ -64,6 +65,27 @@ export 'quotes.dart'
         LastForexQuote,
         RealTimeCurrencyConversion;
 export 'request.dart';
+export 'snapshot.dart'
+    show
+        MinuteSnapshot,
+        IndicesSession,
+        IndicesSnapshot,
+        TickerSnapshot,
+        DayOptionContractSnapshot,
+        OptionDetails,
+        LastQuoteOptionContractSnapshot,
+        LastTradeOptionContractSnapshot,
+        Greeks,
+        UnderlyingAsset,
+        OptionContractSnapshot,
+        OrderBookQuote,
+        SnapshotTickerFullBook,
+        UniversalSnapshotSession,
+        UniversalSnapshotLastQuote,
+        UniversalSnapshotLastTrade,
+        UniversalSnapshotUnderlyingAsset,
+        UniversalSnapshotDetails,
+        UniversalSnapshot;
 
 typedef _AGG = Agg;
 typedef _GroupedDailyAgg = GroupedDailyAgg;
@@ -115,9 +137,87 @@ typedef _LastQuote = LastQuote;
 typedef _ForexQuote = ForexQuote;
 typedef _LastForexQuote = LastForexQuote;
 typedef _RealTimeCurrencyConversion = RealTimeCurrencyConversion;
+typedef _MinuteSnapshot = MinuteSnapshot;
+typedef _IndicesSession = IndicesSession;
+typedef _IndicesSnapshot = IndicesSnapshot;
+typedef _TickerSnapshot = TickerSnapshot;
+typedef _DayOptionContractSnapshot = DayOptionContractSnapshot;
+typedef _OptionDetails = OptionDetails;
+typedef _LastQuoteOptionContractSnapshot = LastQuoteOptionContractSnapshot;
+typedef _LastTradeOptionContractSnapshot = LastTradeOptionContractSnapshot;
+typedef _Greeks = Greeks;
+typedef _UnderlyingAsset = UnderlyingAsset;
+typedef _OptionContractSnapshot = OptionContractSnapshot;
+typedef _OrderBookQuote = OrderBookQuote;
+typedef _SnapshotTickerFullBook = SnapshotTickerFullBook;
+typedef _UniversalSnapshotSession = UniversalSnapshotSession;
+typedef _UniversalSnapshotLastQuote = UniversalSnapshotLastQuote;
+typedef _UniversalSnapshotLastTrade = UniversalSnapshotLastTrade;
+typedef _UniversalSnapshotUnderlyingAsset = UniversalSnapshotUnderlyingAsset;
+typedef _UniversalSnapshotDetails = UniversalSnapshotDetails;
+typedef _UniversalSnapshot = UniversalSnapshot;
 
 /// Contains methods for parsing each typedef from json.
 sealed class parse {
+  static _UniversalSnapshot UniversalSnapshot(
+    Map<String, dynamic> json,
+  ) =>
+      universalSnapshot.fromJson(json);
+  static _UniversalSnapshotDetails UniversalSnapshotDetails(
+    Map<String, dynamic> json,
+  ) =>
+      universalSnapshotDetails.fromJson(json);
+  static _UniversalSnapshotUnderlyingAsset UniversalSnapshotUnderlyingAsset(
+    Map<String, dynamic> json,
+  ) =>
+      universalSnapshotUnderlyingAsset.fromJson(json);
+  static _UniversalSnapshotLastTrade UniversalSnapshotLastTrade(
+    Map<String, String> json,
+  ) =>
+      universalSnapshotLastTrade.fromJson(json);
+  static _UniversalSnapshotLastQuote UniversalSnapshotLastQuote(
+    Map<String, String> json,
+  ) =>
+      universalSnapshotLastQuote.fromJson(json);
+  static _UniversalSnapshotSession UniversalSnapshotSession(
+    Map<String, String> json,
+  ) =>
+      universalSnapshotSession.fromJson(json);
+  static _SnapshotTickerFullBook SnapshotTickerFullBook(
+    Map<String, dynamic> json,
+  ) =>
+      snapShotTickerFullBook.fromJson(json);
+  static _OrderBookQuote OrderBookQuote(Map<String, dynamic> json) =>
+      orderBookQuote.fromJson(json);
+  static _OptionContractSnapshot OptionContractSnapshot(
+    Map<String, dynamic> json,
+  ) =>
+      optionContractSnapshot.fromJson(json);
+  static _UnderlyingAsset UnderlyingAsset(Map<String, dynamic> json) =>
+      underlyingAsset.fromJson(json);
+  static _Greeks Greeks(Map<String, dynamic> json) => greeks.fromJson(json);
+  static _LastTradeOptionContractSnapshot LastTradeOptionContractSnapshot(
+    Map<String, dynamic> json,
+  ) =>
+      lastTradeOptionContractSnapshot.fromJson(json);
+  static _LastQuoteOptionContractSnapshot LastQuoteOptionContractSnapshot(
+    Map<String, dynamic> json,
+  ) =>
+      lastQuoteOptionContractSnapshot.fromJson(json);
+  static _OptionDetails OptionDetails(Map<String, dynamic> json) =>
+      optionDetails.fromJson(json);
+  static _DayOptionContractSnapshot DayOptionContractSnapshot(
+    Map<String, dynamic> json,
+  ) =>
+      dayOptionContractSnapshot.fromJson(json);
+  static _TickerSnapshot TickerSnapshot(Map<String, dynamic> json) =>
+      tickerSnapshot.fromJson(json);
+  static _IndicesSnapshot IndicesSnapshot(Map<String, dynamic> json) =>
+      indicesSnapshot.fromJson(json);
+  static _IndicesSession IndicesSession(Map<String, dynamic> json) =>
+      indicesSession.fromJson(json);
+  static _MinuteSnapshot MinuteSnapshot(Map<String, dynamic> json) =>
+      minuteSnapshot.fromJson(json);
   static _RealTimeCurrencyConversion RealTimeCurrencyConversion(
     Map<String, dynamic> json,
   ) =>

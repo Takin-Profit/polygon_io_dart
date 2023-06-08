@@ -350,7 +350,7 @@ typedef SnapshotTickerFullBook = ({
 });
 
 extension snapShotTickerFullBook on SnapshotTickerFullBook {
-  SnapshotTickerFullBook fromJson(Map<String, dynamic> json) {
+  static SnapshotTickerFullBook fromJson(Map<String, dynamic> json) {
     var bidList = json['bids'] as List?;
     var askList = json['asks'] as List?;
 
