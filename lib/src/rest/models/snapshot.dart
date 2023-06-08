@@ -113,7 +113,7 @@ extension tickerSnapshot on TickerSnapshot {
               )
             : null,
         lastTrade: json['lastTrade'] != null
-            ? Last_Trade.fromJson(
+            ? lastTrade.fromJson(
                 json['lastTrade'] as Map<String, dynamic>,
               )
             : null,

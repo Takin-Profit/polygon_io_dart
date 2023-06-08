@@ -18,7 +18,7 @@ typedef Trade = ({
   int? trfTimestamp,
 });
 
-extension Trades on Trade {
+extension trade on Trade {
   static Trade fromJson(Map<String, dynamic> json) => (
         conditions: json['conditions'] != null
             ? List<int>.of(
@@ -56,7 +56,7 @@ typedef LastTrade = ({
   int? tape,
 });
 
-extension Last_Trade on LastTrade {
+extension lastTrade on LastTrade {
   static LastTrade fromJson(Map<String, dynamic> json) => (
         ticker: json['T'],
         trfTimestamp: json['f'],
@@ -87,7 +87,7 @@ typedef CryptoTrade = ({
   int? timestamp,
 });
 
-extension Crypto_Trade on CryptoTrade {
+extension cryptoTrade on CryptoTrade {
   static CryptoTrade fromJson(Map<String, dynamic> json) => (
         conditions: json['conditions'] != null
             ? List<int>.of(
