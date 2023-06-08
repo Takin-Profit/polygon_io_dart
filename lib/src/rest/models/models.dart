@@ -8,6 +8,7 @@ import 'contracts.dart';
 import 'dividends.dart';
 import 'exchanges.dart';
 import 'financials.dart';
+import 'indicators.dart';
 
 export 'aggs.dart'
     show Agg, GroupedDailyAgg, DailyOpenCloseAgg, PreviousCloseAgg;
@@ -36,6 +37,16 @@ export 'financials.dart'
         IncomeStatement,
         Financials,
         StockFinancial;
+export 'indicators.dart'
+    show
+        IndicatorValue,
+        MACDIndicatorValue,
+        IndicatorUnderlying,
+        SingleIndicatorResults,
+        SMAIndicatorResults,
+        EMAIndicatorResults,
+        RSIIndicatorResults,
+        MACDIndicatorResults;
 
 typedef _AGG = Agg;
 typedef _GroupedDailyAgg = GroupedDailyAgg;
@@ -69,10 +80,37 @@ typedef _Revenues = Revenues;
 typedef _IncomeStatement = IncomeStatement;
 typedef _Financials = Financials;
 typedef _StockFinancial = StockFinancial;
+typedef _IndicatorValue = IndicatorValue;
+typedef _MACDIndicatorValue = MACDIndicatorValue;
+typedef _IndicatorUnderlying = IndicatorUnderlying;
+typedef _SingleIndicatorResults = SingleIndicatorResults;
+typedef _SMAIndicatorResults = SMAIndicatorResults;
+typedef _EMAIndicatorResults = EMAIndicatorResults;
+typedef _RSIIndicatorResults = RSIIndicatorResults;
+typedef _MACDIndicatorResults = MACDIndicatorResults;
 
 /// Contains methods for parsing each typedef from json.
 sealed class parse {
-  /// Parses [Agg] type from json.
+  static _MACDIndicatorResults MACDIndicatorResults(
+    Map<String, dynamic> json,
+  ) =>
+      macdIndicatorResults.fromMap(json);
+  static _RSIIndicatorResults RSIIndicatorResults(Map<String, dynamic> json) =>
+      rsiIndicatorResults.fromMap(json);
+  static _EMAIndicatorResults EMAIndicatorResults(Map<String, dynamic> json) =>
+      emaIndicatorResults.fromMap(json);
+  static _SMAIndicatorResults SMAIndicatorResults(Map<String, dynamic> json) =>
+      smaIndicatorResults.fromMap(json);
+  static _SingleIndicatorResults SingleIndicatorResults(
+    Map<String, dynamic> json,
+  ) =>
+      singleIndicatorResult.fromMap(json);
+  static _IndicatorUnderlying IndicatorUnderlying(Map<String, dynamic> json) =>
+      indicatorUnderlying.fromMap(json);
+  static _MACDIndicatorValue MACDIndicatorValue(Map<String, dynamic> json) =>
+      macdIndicatorValue.fromMap(json);
+  static _IndicatorValue IndicatorValue(Map<String, dynamic> json) =>
+      indicatorValue.fromMap(json);
   static _AGG Agg(Map<String, dynamic> json) => agg.fromMap(json);
   static _GroupedDailyAgg GroupedDailyAgg(Map<String, dynamic> json) =>
       groupedDailyAgg.fromMap(json);
