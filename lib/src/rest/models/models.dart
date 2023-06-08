@@ -5,6 +5,9 @@
 import 'aggs.dart';
 import 'conditions.dart';
 import 'contracts.dart';
+import 'dividends.dart';
+import 'exchanges.dart';
+import 'financials.dart';
 
 export 'aggs.dart'
     show Agg, GroupedDailyAgg, DailyOpenCloseAgg, PreviousCloseAgg;
@@ -12,6 +15,27 @@ export 'common.dart';
 export 'conditions.dart'
     show SipMapping, Consolidated, MarketCenter, UpdateRules, Condition;
 export 'contracts.dart' show Underlying, OptionsContract;
+export 'dividends.dart' show Dividend;
+export 'exchanges.dart' show Exchange;
+export 'financials.dart'
+    show
+        DataPoint,
+        ExchangeGainsLosses,
+        NetCashFlow,
+        NetCashFlowFromFinancingActivities,
+        CashFlowStatement,
+        ComprehensiveIncomeLoss,
+        ComprehensiveIncomeLossAttributableToParent,
+        OtherComprehensiveIncomeLoss,
+        ComprehensiveIncome,
+        BasicEarningsPerShare,
+        CostOfRevenue,
+        GrossProfit,
+        OperatingExpenses,
+        Revenues,
+        IncomeStatement,
+        Financials,
+        StockFinancial;
 
 typedef _AGG = Agg;
 typedef _GroupedDailyAgg = GroupedDailyAgg;
@@ -24,6 +48,27 @@ typedef _UpdateRules = UpdateRules;
 typedef _Condition = Condition;
 typedef _Underlying = Underlying;
 typedef _OptionsContract = OptionsContract;
+typedef _Dividend = Dividend;
+typedef _Exchange = Exchange;
+typedef _DataPoint = DataPoint;
+typedef _ExchangeGainsLosses = ExchangeGainsLosses;
+typedef _NetCashFlow = NetCashFlow;
+typedef _NetCashFlowFromFinancingActivities
+    = NetCashFlowFromFinancingActivities;
+typedef _CashFlowStatement = CashFlowStatement;
+typedef _ComprehensiveIncomeLoss = ComprehensiveIncomeLoss;
+typedef _ComprehensiveIncomeLossAttributableToParent
+    = ComprehensiveIncomeLossAttributableToParent;
+typedef _OtherComprehensiveIncomeLoss = OtherComprehensiveIncomeLoss;
+typedef _ComprehensiveIncome = ComprehensiveIncome;
+typedef _BasicEarningsPerShare = BasicEarningsPerShare;
+typedef _CostOfRevenue = CostOfRevenue;
+typedef _GrossProfit = GrossProfit;
+typedef _OperatingExpenses = OperatingExpenses;
+typedef _Revenues = Revenues;
+typedef _IncomeStatement = IncomeStatement;
+typedef _Financials = Financials;
+typedef _StockFinancial = StockFinancial;
 
 /// Contains methods for parsing each typedef from json.
 sealed class parse {
@@ -49,4 +94,50 @@ sealed class parse {
       underlying.fromMap(json);
   static _OptionsContract OptionsContract(Map<String, dynamic> json) =>
       optionsContract.fromMap(json);
+  static _Dividend Dividend(Map<String, dynamic> json) =>
+      dividends.fromMap(json);
+  static _Exchange Exchange(Map<String, dynamic> json) =>
+      exchange.fromMap(json);
+  static _DataPoint DataPoint(Map<String, dynamic> json) =>
+      dataPoint.fromMap(json);
+  static _ExchangeGainsLosses ExchangeGainsLosses(Map<String, dynamic> json) =>
+      exchangeGainsLosses.fromMap(json);
+  static _NetCashFlow NetCashFlow(Map<String, dynamic> json) =>
+      netCashFlow.fromMap(json);
+  static _NetCashFlowFromFinancingActivities NetCashFlowFromFinancingActivities(
+    Map<String, dynamic> json,
+  ) =>
+      netCashFlowFromFinancingActivities.fromMap(json);
+  static _CashFlowStatement CashFlowStatement(Map<String, dynamic> json) =>
+      cashFlowStatement.fromMap(json);
+  static _ComprehensiveIncomeLoss ComprehensiveIncomeLoss(
+    Map<String, dynamic> json,
+  ) =>
+      comprehensiveIncomeLoss.fromMap(json);
+  static _ComprehensiveIncomeLossAttributableToParent
+      ComprehensiveIncomeLossAttributableToParent(Map<String, dynamic> json) =>
+          comprehensiveIncomeLossAttributableToParent.fromMap(json);
+  static _OtherComprehensiveIncomeLoss OtherComprehensiveIncomeLoss(
+    Map<String, dynamic> json,
+  ) =>
+      otherComprehensiveIncomeLoss.fromMap(json);
+  static _ComprehensiveIncome ComprehensiveIncome(Map<String, dynamic> json) =>
+      comprehensiveIncome.fromMap(json);
+  static _BasicEarningsPerShare BasicEarningsPerShare(
+    Map<String, dynamic> json,
+  ) =>
+      basicEarningsPerShare.fromMap(json);
+  static _CostOfRevenue CostOfRevenue(Map<String, dynamic> json) =>
+      costOfRevenue.fromMap(json);
+  static _GrossProfit GrossProfit(Map<String, dynamic> json) =>
+      grossProfit.fromMap(json);
+  static _OperatingExpenses OperatingExpenses(Map<String, dynamic> json) =>
+      operatingExpenses.fromMap(json);
+  static _Revenues Revenues(Map<String, dynamic> json) => revenue.fromMap(json);
+  static _IncomeStatement IncomeStatement(Map<String, dynamic> json) =>
+      incomeStatement.fromMap(json);
+  static _Financials Financials(Map<String, dynamic> json) =>
+      financial.fromMap(json);
+  static _StockFinancial StockFinancial(Map<String, dynamic> json) =>
+      stockFinancial.fromMap(json);
 }
