@@ -9,7 +9,7 @@ typedef SipMapping = ({
   String? UTP,
 });
 
-extension Sip_Mapping on SipMapping {
+extension sipMapping on SipMapping {
   static fromMap(Map<String, dynamic> map) {
     return (
       CTA: map['CTA'],
@@ -43,7 +43,7 @@ extension Consolidate on Consolidated {
 /// Contains data for aggregation rules on a per-market-center basis.
 typedef MarketCenter = _UpdateRule;
 
-extension Market_Center on MarketCenter {
+extension marketCenter on MarketCenter {
   static MarketCenter fromMap(Map<String, dynamic> d) => _fromMap(d);
 }
 
@@ -53,7 +53,7 @@ typedef UpdateRules = ({
   MarketCenter? marketCenter
 });
 
-extension Update_Rules on UpdateRules {
+extension updateRules on UpdateRules {
   static UpdateRules fromMap(Map<String, dynamic> map) {
     return (
       consolidated: map['consolidated'] == null
@@ -66,8 +66,8 @@ extension Update_Rules on UpdateRules {
   }
 }
 
-/// Condition contains data for a condition that Polygon.io uses.
-typedef Condition = ({
+/// condition contains data for a condition that Polygon.io uses.
+typedef condition = ({
   String? abbreviation,
   String? assetClass,
   List<String>? dataTypes,
@@ -81,8 +81,8 @@ typedef Condition = ({
   UpdateRules? updateRules,
 });
 
-extension Conditions on Condition {
-  Condition fromMap(Map<String, dynamic> map) {
+extension conditions on condition {
+  condition fromMap(Map<String, dynamic> map) {
     return (
       abbreviation: map['abbreviation'],
       assetClass: map['asset_class'],
@@ -96,11 +96,11 @@ extension Conditions on Condition {
       name: map['name'],
       sipMapping: map['sip_mapping'] == null
           ? null
-          : Sip_Mapping.fromMap(map['sip_mapping'] as Map<String, dynamic>),
+          : sipMapping.fromMap(map['sip_mapping'] as Map<String, dynamic>),
       type: map['type'],
       updateRules: map['update_rules'] == null
           ? null
-          : Update_Rules.fromMap(map['update_rules'] as Map<String, dynamic>),
+          : updateRules.fromMap(map['update_rules'] as Map<String, dynamic>),
     );
   }
 }
