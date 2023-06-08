@@ -60,8 +60,8 @@ enum DividendType {
 
 enum Frequency {
   ONE_TIME(value: 0),
-  ANUALLY(value: 1),
-  BIANUALLY(value: 2),
+  ANNUALLY(value: 1),
+  BIANNUALLY(value: 2),
   QUARTERLY(value: 4),
   MONTHLY(value: 12);
 
