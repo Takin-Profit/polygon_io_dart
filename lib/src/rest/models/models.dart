@@ -4,12 +4,14 @@
 
 import 'aggs.dart';
 import 'conditions.dart';
+import 'contracts.dart';
 
 export 'aggs.dart'
     show Agg, GroupedDailyAgg, DailyOpenCloseAgg, PreviousCloseAgg;
 export 'common.dart';
 export 'conditions.dart'
     show SipMapping, Consolidated, MarketCenter, UpdateRules, Condition;
+export 'contracts.dart' show Underlying, OptionsContract;
 
 typedef _AGG = Agg;
 typedef _GroupedDailyAgg = GroupedDailyAgg;
@@ -20,6 +22,8 @@ typedef _Consolidated = Consolidated;
 typedef _MarketCenter = MarketCenter;
 typedef _UpdateRules = UpdateRules;
 typedef _Condition = Condition;
+typedef _Underlying = Underlying;
+typedef _OptionsContract = OptionsContract;
 
 /// Contains methods for parsing each typedef from json.
 sealed class parse {
@@ -41,4 +45,8 @@ sealed class parse {
       updateRules.fromMap(json);
   static _Condition Condition(Map<String, dynamic> json) =>
       condition.fromMap(json);
+  static _Underlying Underlying(Map<String, dynamic> json) =>
+      underlying.fromMap(json);
+  static _OptionsContract OptionsContract(Map<String, dynamic> json) =>
+      optionsContract.fromMap(json);
 }
