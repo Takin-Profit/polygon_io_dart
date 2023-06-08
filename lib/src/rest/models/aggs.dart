@@ -1,7 +1,8 @@
 // Copyright 2023 Takin Profit. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
-// Contains aggregate data for a given ticker symbol over a given date range in a custom time window size.
+
+/// Contains aggregate data for a given ticker symbol over a given date range in a custom time window size.
 typedef Agg = ({
   double? open,
   double? high,
@@ -30,7 +31,7 @@ extension Aggs on Agg {
   }
 }
 
-// Contains daily open, high, low, and close (OHLC) data for a given date.
+/// Contains daily open, high, low, and close (OHLC) data for a given date.
 typedef GroupedDailyAgg = ({
   String? ticker,
   double? open,
@@ -61,7 +62,7 @@ extension Grouped_Daily_Agg on GroupedDailyAgg {
   }
 }
 
-// Contains data for open, close and afterhours prices of a ticker symbol on a specified date.
+/// Contains data for open, close and afterhours prices of a ticker symbol on a specified date.
 typedef DailyOpenCloseAgg = ({
   double? afterHours,
   double? close,
@@ -94,7 +95,7 @@ extension DailyOpenCloseAggExtension on DailyOpenCloseAgg {
   }
 }
 
-// Contains data for the previous day's open, high, low, and close (OHLC) of the specified stock ticker.
+/// Contains data for the previous day's open, high, low, and close (OHLC) of the specified stock ticker.
 typedef PreviousCloseAgg = ({
   String? ticker,
   double? close,

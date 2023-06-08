@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
+/// Exchange contains data for a condition that Polygon.io uses.
 typedef Exchange = ({
   String? acronym,
   String? assetClass,

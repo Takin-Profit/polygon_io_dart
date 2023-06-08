@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
+/// Underlying contains data for an underlying or deliverable associated with an option contract.
 typedef Underlying = ({
   double? amount,
   String? type,
@@ -18,6 +19,7 @@ extension Under_lying on Underlying {
   }
 }
 
+/// OptionsContract contains data for a specified ticker symbol.
 typedef OptionsContract = ({
   List<Underlying>? additionalUnderlyings,
   String? cfi,
