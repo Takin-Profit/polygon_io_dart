@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
+/// Contains data for a mapping to a symbol for each SIP that has a given condition.
 typedef SipMapping = ({
   String? CTA,
   String? OPRA,
@@ -18,37 +19,54 @@ extension Sip_Mapping on SipMapping {
   }
 }
 
-typedef UpdateRule = ({
+typedef _UpdateRule = ({
   bool? updatesHighLow,
   bool? updatesOpenClose,
   bool? updatesVolume,
 });
 
-extension Update_Rule on UpdateRule {
-  static UpdateRule fromMap(Map<String, dynamic> map) {
-    return (
-      updatesHighLow: map['updates_high_low'] as bool,
-      updatesOpenClose: map['updates_open_close'] as bool,
-      updatesVolume: map['updates_volume'] as bool,
-    );
-  }
+_UpdateRule _fromMap(Map<String, dynamic> map) {
+  return (
+    updatesHighLow: map['updates_high_low'] as bool,
+    updatesOpenClose: map['updates_open_close'] as bool,
+    updatesVolume: map['updates_volume'] as bool,
+  );
 }
 
-typedef UpdateRules = ({UpdateRule? consolidated, UpdateRule? marketCenter});
+/// Contains data for aggregation rules on a consolidated (all exchanges) basis.
+typedef Consolidated = _UpdateRule;
+
+extension Consolidate on Consolidated {
+  static Consolidated fromMap(Map<String, dynamic> d) => _fromMap(d);
+}
+
+/// Contains data for aggregation rules on a per-market-center basis.
+typedef MarketCenter = _UpdateRule;
+
+extension Market_Center on MarketCenter {
+  static MarketCenter fromMap(Map<String, dynamic> d) => _fromMap(d);
+}
+
+/// Contains data for a list of aggregation rules.
+typedef UpdateRules = ({
+  Consolidated? consolidated,
+  MarketCenter? marketCenter
+});
 
 extension Update_Rules on UpdateRules {
   static UpdateRules fromMap(Map<String, dynamic> map) {
     return (
       consolidated: map['consolidated'] == null
           ? null
-          : Update_Rule.fromMap(map['consolidated'] as Map<String, dynamic>),
+          : _fromMap(map['consolidated'] as Map<String, dynamic>),
       marketCenter: map['market_center'] == null
           ? null
-          : Update_Rule.fromMap(map['market_center'] as Map<String, dynamic>),
+          : _fromMap(map['market_center'] as Map<String, dynamic>),
     );
   }
 }
 
+/// Condition contains data for a condition that Polygon.io uses.
 typedef Condition = ({
   String? abbreviation,
   String? assetClass,
