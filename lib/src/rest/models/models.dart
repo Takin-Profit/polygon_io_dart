@@ -10,6 +10,7 @@ import 'exchanges.dart';
 import 'financials.dart';
 import 'indicators.dart';
 import 'markets.dart';
+import 'quotes.dart';
 
 export 'aggs.dart'
     show Agg, GroupedDailyAgg, DailyOpenCloseAgg, PreviousCloseAgg;
@@ -55,6 +56,14 @@ export 'markets.dart'
         MarketIndices,
         MarketHoliday,
         MarketStatus;
+export 'quotes.dart'
+    show
+        Quote,
+        LastQuote,
+        ForexQuote,
+        LastForexQuote,
+        RealTimeCurrencyConversion;
+export 'request.dart';
 
 typedef _AGG = Agg;
 typedef _GroupedDailyAgg = GroupedDailyAgg;
@@ -101,9 +110,25 @@ typedef _MarketExchanges = MarketExchanges;
 typedef _MarketIndices = MarketIndices;
 typedef _MarketHoliday = MarketHoliday;
 typedef _MarketStatus = MarketStatus;
+typedef _Quote = Quote;
+typedef _LastQuote = LastQuote;
+typedef _ForexQuote = ForexQuote;
+typedef _LastForexQuote = LastForexQuote;
+typedef _RealTimeCurrencyConversion = RealTimeCurrencyConversion;
 
 /// Contains methods for parsing each typedef from json.
 sealed class parse {
+  static _RealTimeCurrencyConversion RealTimeCurrencyConversion(
+    Map<String, dynamic> json,
+  ) =>
+      realTimeCurrencyConversion.fromMap(json);
+  static _LastForexQuote LastForexQuote(Map<String, dynamic> json) =>
+      lastForexQuote.fromMap(json);
+  static _ForexQuote ForexQuote(Map<String, dynamic> json) =>
+      forexQuote.fromMap(json);
+  static _LastQuote LastQuote(Map<String, dynamic> json) =>
+      lastQuote.fromMap(json);
+  static _Quote Quote(Map<String, dynamic> json) => quotes.fromMap(json);
   static _MarketStatus MarketStatus(Map<String, dynamic> json) =>
       marketStatus.fromMap(json);
   static _MarketHoliday MarketHoliday(Map<String, dynamic> json) =>
