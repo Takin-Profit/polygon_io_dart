@@ -33,12 +33,14 @@ extension Exchange_Gains_Losses on ExchangeGainsLosses {
   static ExchangeGainsLosses fromMap(Map<String, dynamic> d) => _fromMap(d);
 }
 
+/// Contains net cash flow data for a cash flow statement.
 typedef NetCashFlow = _Data;
 
 extension Net_Cash_Flow on NetCashFlow {
   static NetCashFlow fromMap(Map<String, dynamic> d) => _fromMap(d);
 }
 
+/// Contains net cash flow from financing activities data for a cash flow statement.
 typedef NetCashFlowFromFinancingActivities = _Data;
 
 extension NetCashFlow_FromFinancing_Activities
@@ -47,6 +49,7 @@ extension NetCashFlow_FromFinancing_Activities
       _fromMap(d);
 }
 
+/// Contains cash flow statement data.
 typedef CashFlowStatement = ({
   ExchangeGainsLosses? exchangeGainsLosses,
   NetCashFlow? netCashFlow,
@@ -75,12 +78,14 @@ extension CashFlow_Statement on CashFlowStatement {
       );
 }
 
+/// Contains comprehensive income loss data for comprehensive income.
 typedef ComprehensiveIncomeLoss = _Data;
 
 extension Comprehensive_IncomeLoss on ComprehensiveIncomeLoss {
   static ComprehensiveIncomeLoss fromMap(Map<String, dynamic> d) => _fromMap(d);
 }
 
+/// Contains comprehensive income loss attributable to parent data for comprehensive income.
 typedef ComprehensiveIncomeLossAttributableToParent = _Data;
 
 extension ComprehensiveIncomeLoss_AttributableToParent
@@ -90,6 +95,7 @@ extension ComprehensiveIncomeLoss_AttributableToParent
       _fromMap(d);
 }
 
+/// Contains other comprehensive income loss data for comprehensive income.
 typedef OtherComprehensiveIncomeLoss = _Data;
 
 extension Other_Comprehensive_IncomeLoss on OtherComprehensiveIncomeLoss {
@@ -97,6 +103,7 @@ extension Other_Comprehensive_IncomeLoss on OtherComprehensiveIncomeLoss {
       _fromMap(d);
 }
 
+/// Contains comprehensive income data.
 typedef ComprehensiveIncome = ({
   ComprehensiveIncomeLoss? comprehensiveIncomeLoss,
   ComprehensiveIncomeLossAttributableToParent? comprehensiveIncomeLossAttributableToParent,
@@ -126,36 +133,42 @@ extension Comprehensive_Income on ComprehensiveIncome {
       );
 }
 
+/// Contains basic earning per share data for an income statement.
 typedef BasicEarningsPerShare = _Data;
 
 extension BasicEarnings_PerShare on BasicEarningsPerShare {
   static BasicEarningsPerShare fromMap(Map<String, dynamic> d) => _fromMap(d);
 }
 
+/// Contains cost of revenue data for an income statement.
 typedef CostOfRevenue = _Data;
 
 extension CostOf_Revenue on CostOfRevenue {
   static CostOfRevenue fromMap(Map<String, dynamic> d) => _fromMap(d);
 }
 
+/// Contains gross profit data for an income statement.
 typedef GrossProfit = _Data;
 
 extension Gross_Profit on GrossProfit {
   static GrossProfit fromMap(Map<String, dynamic> d) => _fromMap(d);
 }
 
+/// Contains operating expenses data for an income statement.
 typedef OperatingExpenses = _Data;
 
 extension Operating_Expenses on OperatingExpenses {
   static OperatingExpenses fromMap(Map<String, dynamic> d) => _fromMap(d);
 }
 
+/// Contains revenues data for an income statement.
 typedef Revenues = _Data;
 
 extension Revenue on Revenues {
   static Revenues fromMap(Map<String, dynamic> d) => _fromMap(d);
 }
 
+/// Contains income statement data.
 typedef IncomeStatement = ({
   BasicEarningsPerShare? basicEarningsPerShare,
   CostOfRevenue? costOfRevenue,
@@ -194,6 +207,7 @@ extension Income_Statement on IncomeStatement {
       );
 }
 
+/// Contains financial data.
 typedef Financials = ({
   Map<String, DataPoint>? balanceSheet,
   CashFlowStatement? cashFlowStatement,
@@ -231,6 +245,7 @@ extension Financial on Financials {
       );
 }
 
+/// StockFinancial contains historical financial data for a stock ticker.
 typedef StockFinancial = ({
   String? cik,
   String? companyName,
