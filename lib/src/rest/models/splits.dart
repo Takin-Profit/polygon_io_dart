@@ -13,6 +13,18 @@ typedef Split = ({
 });
 
 extension split on Split {
+  static Split of({
+    String? executionDate,
+    int? splitFrom,
+    int? splitTo,
+    String? ticker,
+  }) =>
+      (
+        executionDate: executionDate,
+        splitFrom: splitFrom,
+        splitTo: splitTo,
+        ticker: ticker,
+      );
   static Split fromJson(Map<String, dynamic> json) => (
         executionDate: json['execution_date'],
         splitFrom: json['split_from'],
