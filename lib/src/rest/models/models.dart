@@ -15,6 +15,7 @@ import 'snapshot.dart';
 import 'splits.dart';
 import 'summaries.dart';
 import 'tickers.dart';
+import 'trades.dart';
 
 export 'aggs.dart'
     show Agg, GroupedDailyAgg, DailyOpenCloseAgg, PreviousCloseAgg;
@@ -103,6 +104,7 @@ export 'tickers.dart'
         TickerChange,
         TickerChangeEvent,
         TickerChangeResults;
+export 'trades.dart' show Trade, LastTrade, CryptoTrade;
 
 typedef _AGG = Agg;
 typedef _GroupedDailyAgg = GroupedDailyAgg;
@@ -187,9 +189,17 @@ typedef _TickerChange = TickerChange;
 typedef _TickerChangeEvent = TickerChangeEvent;
 typedef _TickerChangeResults = TickerChangeResults;
 typedef _Ticker = Ticker;
+typedef _Trade = Trade;
+typedef _LastTrade = LastTrade;
+typedef _CryptoTrade = CryptoTrade;
 
 /// Contains methods for parsing each typedef from json.
 sealed class parse {
+  static _CryptoTrade CryptoTrade(Map<String, String> json) =>
+      cryptoTrade.fromJson(json);
+  static _LastTrade LastTrade(Map<String, String> json) =>
+      lastTrade.fromJson(json);
+  static _Trade Trade(Map<String, dynamic> json) => trade.fromJson(json);
   static _TickerChangeResults TickerChangeResults(Map<String, dynamic> json) =>
       tickerChangeResults.fromJson(json);
   static _TickerChangeEvent TickerChangeEvent(Map<String, dynamic> json) =>
