@@ -12,6 +12,9 @@ import 'indicators.dart';
 import 'markets.dart';
 import 'quotes.dart';
 import 'snapshot.dart';
+import 'splits.dart';
+import 'summaries.dart';
+import 'tickers.dart';
 
 export 'aggs.dart'
     show Agg, GroupedDailyAgg, DailyOpenCloseAgg, PreviousCloseAgg;
@@ -86,6 +89,20 @@ export 'snapshot.dart'
         UniversalSnapshotUnderlyingAsset,
         UniversalSnapshotDetails,
         UniversalSnapshot;
+export 'splits.dart' show Split;
+export 'summaries.dart' show Session, Options, SummaryResult;
+export 'tickers.dart'
+    show
+        CompanyAddress,
+        Branding,
+        Publisher,
+        Ticker,
+        TickerDetails,
+        TickerNews,
+        TickerTypes,
+        TickerChange,
+        TickerChangeEvent,
+        TickerChangeResults;
 
 typedef _AGG = Agg;
 typedef _GroupedDailyAgg = GroupedDailyAgg;
@@ -156,9 +173,63 @@ typedef _UniversalSnapshotLastTrade = UniversalSnapshotLastTrade;
 typedef _UniversalSnapshotUnderlyingAsset = UniversalSnapshotUnderlyingAsset;
 typedef _UniversalSnapshotDetails = UniversalSnapshotDetails;
 typedef _UniversalSnapshot = UniversalSnapshot;
+typedef _Split = Split;
+typedef _Session = Session;
+typedef _Options = Options;
+typedef _SummaryResult = SummaryResult;
+typedef _CompanyAddress = CompanyAddress;
+typedef _Branding = Branding;
+typedef _Publisher = Publisher;
+typedef _TickerDetails = TickerDetails;
+typedef _TickerNews = TickerNews;
+typedef _TickerTypes = TickerTypes;
+typedef _TickerChange = TickerChange;
+typedef _TickerChangeEvent = TickerChangeEvent;
+typedef _TickerChangeResults = TickerChangeResults;
+typedef _Ticker = Ticker;
 
 /// Contains methods for parsing each typedef from json.
 sealed class parse {
+  static _TickerChangeResults TickerChangeResults(Map<String, dynamic> json) =>
+      tickerChangeResults.fromJson(json);
+  static _TickerChangeEvent TickerChangeEvent(Map<String, dynamic> json) =>
+      tickerChangeEvent.fromJson(json);
+  static _TickerChange TickerChange(Map<String, dynamic> json) =>
+      tickerChange.fromJson(json);
+  static _TickerTypes TickerTypes(Map<String, dynamic> json) =>
+      tickerType.fromJson(json);
+  static _TickerNews TickerNews(Map<String, dynamic> json) =>
+      tickerNews.fromJson(json);
+  static _TickerDetails TickerDetails(Map<String, dynamic> json) =>
+      tickerDetails.fromJson(json);
+  static _Publisher Publisher(Map<String, dynamic> json) =>
+      publisher.fromJson(json);
+  static _CompanyAddress CompanyAddress(
+    Map<String, dynamic> json,
+  ) =>
+      companyAddress.fromJson(json);
+  static _Branding Branding(Map<String, dynamic> json) =>
+      brandings.fromJson(json);
+  static _Ticker Ticker(
+    Map<String, dynamic> json,
+  ) =>
+      ticker.fromJson(json);
+  static _SummaryResult SummaryResult(
+    Map<String, dynamic> json,
+  ) =>
+      summaryResults.fromJson(json);
+  static _Options Options(
+    Map<String, dynamic> json,
+  ) =>
+      options.fromJson(json);
+  static _Session Session(
+    Map<String, dynamic> json,
+  ) =>
+      session.fromJson(json);
+  static _Split Split(
+    Map<String, dynamic> json,
+  ) =>
+      split.fromJson(json);
   static _UniversalSnapshot UniversalSnapshot(
     Map<String, dynamic> json,
   ) =>
