@@ -2,7 +2,6 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-import 'dart:collection';
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
@@ -12,56 +11,10 @@ import 'package:polygon_io/src/exceptions.dart';
 import 'package:polygon_io/src/logging.dart';
 import 'package:polygon_io/src/rest/models/request.dart';
 
+import 'models/response.dart';
+
 final _logger = getLogger('RESTClient');
 typedef Deserializer<T> = T Function(Map<String, dynamic> data);
-
-sealed class PolygonResp<T> {
-  bool get isList;
-
-  PolygonResp();
-
-  factory PolygonResp.list(List<T> data) => PolygonResponseList(data);
-  factory PolygonResp.of(T data) => PolygonResponse(data);
-}
-
-class PolygonResponseList<T> extends PolygonResp<T>
-    with ListMixin<T>
-    implements List<T> {
-  final List<T> _ls;
-
-  @override
-  bool get isList => true;
-
-  @override
-  int get length => _ls.length;
-
-  @override
-  void set length(int newLength) {
-    _ls.length = newLength;
-  }
-
-  PolygonResponseList(this._ls);
-
-  @override
-  T operator [](int index) {
-    return _ls[index];
-  }
-
-  @override
-  void operator []=(int index, T value) {
-    _ls[index] = value;
-  }
-}
-
-class PolygonResponse<T> extends PolygonResp<T> {
-  final T _data;
-  @override
-  bool get isList => false;
-
-  T get data => _data;
-
-  PolygonResponse(this._data);
-}
 
 class BaseClient {
   String apiKey;
