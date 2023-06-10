@@ -17,7 +17,7 @@ class RequestOptionError implements Exception {
 /// [edgeIpAddress] is a required Launchpad header. It denotes the originating IP Address of the Edge User
 /// [edgeUser] is an optional Launchpad header. It denotes the originating UserAgent of the Edge User requesting data.
 class RequestOptionBuilder {
-  Map<String, String>? headers;
+  Map<String, dynamic>? headers;
 
   RequestOptionBuilder({
     String? edgeId,

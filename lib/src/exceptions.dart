@@ -11,5 +11,10 @@ class BadResponse implements Exception {
 }
 
 class NoResultsError implements Exception {
-  String toString() => 'Missing results key';
+  String _msg;
+
+  NoResultsError([String this._msg = 'Missing results key']);
+
+  @override
+  String toString() => _msg;
 }

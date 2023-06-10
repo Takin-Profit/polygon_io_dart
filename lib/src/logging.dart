@@ -7,7 +7,7 @@ import 'package:logging/logging.dart';
 Logger getLogger(String name) {
   Logger logger = Logger(name);
 
-  Logger.root.level = Level.ALL;
+  Logger.root.level = Level.INFO;
   var _ = Logger.root.onRecord.listen((LogRecord rec) {
     print('${rec.level.name}: ${rec.time}: ${rec.loggerName}: ${rec.message}');
   });
